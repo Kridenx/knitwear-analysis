@@ -18,7 +18,7 @@ knitwear-analysis/
 ## 快速开始
 
 ```bash
-cd ~/knitwear-analysis
+cd ~/"Claude Folder"/knitwear-analysis
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
