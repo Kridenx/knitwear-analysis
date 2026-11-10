@@ -24,3 +24,19 @@ source .venv/bin/activate
 pip install -r requirements.txt
 jupyter lab
 ```
+
+## 运行第一版分析
+
+```bash
+.venv/bin/python scripts/run_hs61_analysis.py
+```
+
+输出：
+- `data/processed/us_imports_china_hs61_monthly.csv`：合并后的月度数据
+- `reports/hs61_summary.xlsx`：年度/同期汇总、月度金额、月度同比、季节占比
+- `reports/figures/`：月度走势、按月对比、同期总额图
+
+## 数据命名规则
+
+`<报告国>_<流向>_<伙伴>_hs<编码>_<年份>.csv`，例如 `us_imports_china_hs61_2025.csv`。
+数据来源：UN Comtrade（https://comtradeplus.un.org）。
