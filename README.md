@@ -40,3 +40,11 @@ jupyter lab
 
 `<报告国>_<流向>_<伙伴>_hs<编码>_<年份>.csv`，例如 `us_imports_china_hs61_2025.csv`。
 数据来源：UN Comtrade（https://comtradeplus.un.org）。
+
+## 订单转移分析
+
+```bash
+.venv/bin/python scripts/run_shift_analysis.py
+```
+
+输出 `reports/shift_summary.xlsx`（各国金额、份额、2024→2025 变化、中国 HS60 面料出口）和 `reports/figures/04–06`。

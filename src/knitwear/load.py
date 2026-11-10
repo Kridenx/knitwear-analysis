@@ -36,7 +36,12 @@ def read_comtrade(path: Path) -> pd.DataFrame:
     """Read one Comtrade CSV and return a tidy frame."""
     df = pd.read_csv(path, encoding="utf-8-sig", dtype={"cmdCode": str})
     df = df[list(KEEP)].rename(columns=KEEP)
-    df["date"] = pd.to_datetime(df["period"].astype(str), format="%Y%m")
+    # Monthly files have period like 202501; annual files have 2025.
+    period = df["period"].astype(str)
+    fmt = "%Y%m" if period.str.len().eq(6).all() else "%Y"
+    df["date"] = pd.to_datetime(period, format=fmt)
+    if fmt == "%Y":
+        df["month"] = pd.NA  # annual rows have no month
     # Comtrade writes 0 when quantity/weight is not reported.
     for col in ("qty", "net_kg"):
         df[col] = df[col].where(df[col] > 0)
