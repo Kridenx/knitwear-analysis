@@ -18,12 +18,14 @@ knitwear-analysis/
 ## 快速开始
 
 ```bash
-cd ~/"Claude Folder"/knitwear-analysis
+git clone https://github.com/Kridenx/knitwear-analysis.git
+cd knitwear-analysis
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
-jupyter lab
 ```
+
+原始数据不在仓库里，请先按下面的命名规则从 UN Comtrade 下载，放进 `data/raw/`。
 
 ## 运行第一版分析
 
